@@ -8,6 +8,7 @@ import { connectDB, httpServer } from './config';
     httpServer.listen(process.env.PORT, () => {
       console.log(`Servidor escuchando el puerto ${process.env.PORT}`)
     });
+
  }  
 
  bootstrap();
