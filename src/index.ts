@@ -1,11 +1,10 @@
-import express from 'express';
+import './config/env'
+import httpServer from './config/http';
 
-const app = express();
-const port = 3000;
-app.get('/', (req, res) => {
-  res.send('The sedulous hyena ate the antelope!');
-});
+ const bootstrap = () => {
+    httpServer.listen(process.env.PORT, () => {
+      console.log(`Servidor escuchando el puerto ${process.env.PORT}`)
+    });
+ }  
 
-app.listen(port, () => {
-  return console.log(`server is listening on ${port}`);
-});
+ bootstrap();
