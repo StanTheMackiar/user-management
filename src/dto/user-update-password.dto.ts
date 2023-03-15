@@ -11,7 +11,7 @@ const updatePasswordDTOSchema = Type.Object({
   oldPassword: passwordDTOShema,
   newPassword: passwordDTOShema,
 }, {
-  additionalProperties: false,
+  additionalProperties: true,
   errorMessage: {
     additionalProperties: 'El formato del objeto es inválido'
   }

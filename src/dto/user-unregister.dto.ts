@@ -9,7 +9,7 @@ import { passwordDTOShema } from './dto-types';
 const UnRegisterDTOSChema = Type.Object({
   password: passwordDTOShema,
 }, {
-  additionalProperties: false,
+  additionalProperties: true,
   errorMessage: {
     additionalProperties: 'El formato del objeto es inválido'
   }
@@ -23,7 +23,6 @@ const validateSchema = ajv.compile(UnRegisterDTOSChema);
 
 const userUnregisterDTO = (req: Request, res: Response, next: NextFunction) => {
   const isDTOValid = validateSchema(req.body);
-
 
   if(!isDTOValid) {
     return res

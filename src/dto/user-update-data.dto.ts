@@ -10,7 +10,7 @@ const UpdateDataDTOSChema = Type.Object({
   name: nameDTOShema,
   surname: surnameDTOShema,
 }, {
-  additionalProperties: false,
+  additionalProperties: true,
   errorMessage: {
     additionalProperties: 'El formato del objeto es inválido'
   }
@@ -22,8 +22,8 @@ addErrors(ajv);
 const validateSchema = ajv.compile(UpdateDataDTOSChema);
 
 const userUpdateDataDTO = (req: Request, res: Response, next: NextFunction) => {
+  console.log(req.body)
   const isDTOValid = validateSchema(req.body);
-
 
   if(!isDTOValid) {
     return res

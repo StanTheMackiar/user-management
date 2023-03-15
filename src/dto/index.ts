@@ -6,4 +6,5 @@ export { default as userUpdateEmailDTO } from './user-update-email.dto.ts'
 export { default as userUpdatePasswordDTO } from './user-update-password.dto'
 export { default as userUnregisterDTO } from './user-unregister.dto'
 
+export * from './user-jwt.dto'
 export * from './dto-types'

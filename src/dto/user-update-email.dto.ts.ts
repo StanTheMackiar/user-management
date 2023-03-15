@@ -11,7 +11,7 @@ const UpdateEmailDTOSChema = Type.Object({
   email: emailDTOShema,
   password: passwordDTOShema,
 }, {
-  additionalProperties: false,
+  additionalProperties: true,
   errorMessage: {
     additionalProperties: 'El formato del objeto es inválido'
   }

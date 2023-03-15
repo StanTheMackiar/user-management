@@ -1,27 +1,16 @@
 import { Router } from 'express'
-import { userLoginDTO, userRegisterDTO, userUnregisterDTO, userUpdateDataDTO, userUpdateEmailDTO, userUpdatePasswordDTO } from '../dto';
+import { userJWTDTO, userLoginDTO, userRegisterDTO, userUnregisterDTO, userUpdateDataDTO, userUpdateEmailDTO, userUpdatePasswordDTO } from '../dto';
+import { userLoginController, userRegisterController, userProfileController, userUpdateDataController, userUpdateEmailController, userUpdatePasswordController, userUnRegisterController } from '../controllers/user';
 
 const userRouter = Router();
 
-userRouter.post('/register', userRegisterDTO, (req, res) => {
-  res.send();
-});
-userRouter.post('/login', userLoginDTO, (req, res) => {
-  res.send();
-});
-userRouter.get('/profile', );
-userRouter.patch('/update-data', userUpdateDataDTO, (req, res) => {
-  res.send();
-});
-userRouter.patch('/update-email', userUpdateEmailDTO, (req, res) => {
-  res.send();
-});
-userRouter.patch('/update-password', userUpdatePasswordDTO, (req, res) => {
-  res.send();
-});
-userRouter.delete('/unregister', userUnregisterDTO, (req, res) => {
-  res.send();
-});
+userRouter.post('/register', userRegisterDTO, userRegisterController);
+userRouter.post('/login', userLoginDTO, userLoginController, );
+userRouter.get('/profile', userJWTDTO, userProfileController);
+userRouter.patch('/update-data', userJWTDTO, userUpdateDataDTO, userUpdateDataController, );
+userRouter.patch('/update-email', userJWTDTO, userUpdateEmailDTO, userUpdateEmailController, );
+userRouter.patch('/update-password', userJWTDTO, userUpdatePasswordDTO, userUpdatePasswordController, );
+userRouter.delete('/unregister', userJWTDTO, userUnregisterDTO, userUnRegisterController, );
 
 
 export default userRouter;
